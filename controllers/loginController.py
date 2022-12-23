@@ -1,8 +1,9 @@
 from controllers import registerController
 
+users = registerController.users
+
 def login(email, password):
-    users = registerController.users
     for user in users:
-        if user['email'] == username and user['password'] == password:
-            return 'Logged in successfully'
-    return 'Invalid username or password'
+        if user['email'] == email and user['password'] == password:
+            return {'confirm': True, 'message': 'Logged in successfully'}
+    return {'confirm': False, 'message': 'Invalid username or password'}
