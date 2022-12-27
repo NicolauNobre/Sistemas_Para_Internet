@@ -13,23 +13,26 @@ def read():
    if request.method == 'GET':
       return render_template('/index.html')
    elif request.method == 'POST':
-      return loginController.login(request.form['email'], request.form['password'])
-      
+      jsonData = request.get_json()
+      return loginController.login(jsonData['email'], jsonData['password'])      
 
 @app.route('/register', methods=['GET', 'POST'])
 def create():
    if request.method == 'GET':
       return render_template('/register.html')
    else:
-      return registerController.register(request.form['username'], request.form['email'], request.form['password'])
+      jsonData = request.get_json()
+      return registerController.register(jsonData['username'], jsonData['email'], jsonData['password'])
 
 @app.route('/update', methods= ['POST'])
 def update():
-   return registerController.update(request.form['username'], request.form['email'], request.form['password'])
+   jsonData = request.get_json()
+   return registerController.update(jsonData['username'], jsonData['email'], jsonData['password'])
 
 @app.route('/delete', methods= ['POST'])
 def delete():
-   return registerController.delete(request.form['email'])
-
+   jsonData = request.get_json()
+   return registerController.delete(jsonData['email'])
+   
 if __name__ == '__main__':
    app.run(host='localhost', port=3578)
