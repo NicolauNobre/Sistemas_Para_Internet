@@ -8,7 +8,7 @@ async function signIn(){
     method: 'POST',
     headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
     },
     body: JSON.stringify({
         "username": username.value,
@@ -17,7 +17,40 @@ async function signIn(){
     }),
     });
 
+    console.log(response.body.username);
+
     response.json().then(data => {
     console.log(data);
+    
+    if (data.confirm == true){
+        alert("Usuário cadastrado com sucesso!");
+        window.location.href = "/login";
+    };
+    });
+}
+
+async function logIn(){
+
+    const response = await fetch("http://localhost:3578/login", {
+    method: 'POST',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        "email": email.value,
+        "password": password.value,
+    }),
+    });
+
+    console.log(response.body.username);
+
+    response.json().then(data => {
+    console.log(data);
+    
+    if (data.confirm == true){
+        alert("Usuário logado com sucesso!");
+        window.location.href = "/";
+    };
     });
 }
