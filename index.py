@@ -24,15 +24,18 @@ def create():
       jsonData = request.get_json()
       return registerController.register(jsonData['username'], jsonData['email'], jsonData['password'])
 
-@app.route('/update', methods= ['UPDATE'])
+@app.route('/update', methods= ['GET','UPDATE'])
 def update():
-   jsonData = request.get_json()
-   return registerController.update(jsonData['username'], jsonData['email'], jsonData['password'])
+   if request.method == 'GET':
+      return render_template('/edit.html')
+   elif request.method == 'UPDATE':
+      jsonData = request.get_json()
+      return registerController.update(jsonData['username'], jsonData['email'], jsonData['password'])
 
 @app.route('/delete', methods= ['DELETE'])
 def delete():
    jsonData = request.get_json()
-   return registerController.delete(jsonData['email'])
+   return registerController.delete(jsonData['email'] , jsonData['password'])
    
 if __name__ == '__main__':
    app.run(host='localhost', port=3578)

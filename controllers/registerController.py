@@ -19,9 +19,9 @@ def update(username, email, password):
             return {'confirm': True, 'message': 'Updated successfully'}
     return {'confirm': False, 'error': 'User not found'}
 
-def delete(email):
+def delete(email, password):
     for user in users:
-        if user['email'] == email:
+        if user['email'] == email and user['password'] == password:
             users.remove(user)
             return {'confirm': True, 'message': 'Deleted successfully'}
-    return {'confirm': False, 'error': 'User not found'}
+    return {'confirm': False, 'error': 'User not found or password is incorrect'}

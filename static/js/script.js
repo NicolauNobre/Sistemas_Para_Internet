@@ -78,7 +78,7 @@ async function delUser(){
 
 async function editUser(){
 
-    const response = await fetch("http://localhost:3578/edit", {
+    const response = await fetch("http://localhost:3578/update", {
     method: 'UPDATE',
     headers: {
     'Accept': 'application/json',
