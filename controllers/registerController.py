@@ -9,7 +9,7 @@ def register(username, email, password):
             'email': email,
             'password': password
             })
-        return {'confirg': True, 'message': 'Registered successfully'}
+        return {'confirm': True, 'message': 'Registered successfully'}
 
 def update(username, email, password):
     for user in users:
