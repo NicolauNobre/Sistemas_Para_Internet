@@ -7,13 +7,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Login | Flask Example</title>
+        <title>Editar Cadastro | Flask Example</title>
 
-        <link href="../css/style.css" rel="stylesheet">
+        <link href="../static/css/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" defer></script>
-        <script src="../js/index.js" defer></script>
+        <script src="../static/js/script.js" defer></script>
 
     </head>
 
@@ -54,35 +54,38 @@
         </nav>
 
         <div class="container">
-
             <div class="row">
                 <div class="col-6 text-center" id="titulo" style="padding-top: 200px;">
                     <header>
                         <h1>Flask Example</h1>
-                        <h4>Faça seu Login</h4>
+                        <h4>Crie sua conta</h4>
                     </header>
                 </div>
-                <div class="col-4" id="formulario" style="padding-top: 150px;">
+                <div class="col-4" id="formulario" style="padding-top: 150px;"> 
                     <form>
                         <div class="card">
                             <div class="card-body">
                                 <div class="row g-3">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input class="form-control" autocomplete="off" type="email" name="email" id="email" placeholder="Digite o email">
+                                        <label for="email">Nome</label>
+                                        <input class="form-control" type="name" autocomplete="off" name="name" id="name" placeholder="Digite seu nome">
                                     </div>
-                                    <div class="callout-info d-none">
-                                        Email inválido ou Inexistente
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                                        required class="form-control" autocomplete="off" name="email" id="email" placeholder="Digite o email">
                                     </div>
                                     <div class="form-group">
                                         <label for="senha">Senha</label>
-                                        <input class="form-control" type="password" onfocus="setNormalColorLogin()" name="senha" id="senha" placeholder="Digite a senha">
+                                        <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite a senha">
                                     </div>
                                     <div class="form-group text-center">
-                                        <button id='input_btn' type="button" onfocus="setNormalColorLogin()" onclick = "logIn()" class="btn form-control" style="background-color: rgb(255, 123, 0); color: white;">Login</button>
+                                        <button id='input_btn' type="button" onclick = "delUser()" class="btn form-control" style="background-color: rgb(255, 123, 0); color: white;">Deletar Usuário</button>
+                                        <button id='input_btn' type="button" onclick = "editUser()" class="btn form-control" style="background-color: rgb(0, 174, 255); color: white;">Editar Usuário</button>
+                                    </div>
                                     </div>
                                     <div class="form-group text-center">
-                                        <a href="register.html"><button type="button" class="btn btn-outline-dark">Crie sua conta</button></a>
+                                        <h6 style="padding-top: 5px;">Desistiu? Faça o <a href="/login" class="link-primary">login</a></h3>   
                                     </div>
                                 </div>
                             </div>
