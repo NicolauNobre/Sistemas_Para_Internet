@@ -11,7 +11,7 @@ def home_page():
 @app.route('/login', methods=['GET', 'POST'])
 def read():
    if request.method == 'GET':
-      return render_template('/index.html')
+      return render_template('/login.html')
    elif request.method == 'POST':
       jsonData = request.get_json()
       return loginController.login(jsonData['email'], jsonData['password'])      
@@ -20,16 +20,16 @@ def read():
 def create():
    if request.method == 'GET':
       return render_template('/register.html')
-   else:
+   elif (request.method == 'POST'):
       jsonData = request.get_json()
       return registerController.register(jsonData['username'], jsonData['email'], jsonData['password'])
 
-@app.route('/update', methods= ['POST'])
+@app.route('/update', methods= ['UPDATE'])
 def update():
    jsonData = request.get_json()
    return registerController.update(jsonData['username'], jsonData['email'], jsonData['password'])
 
-@app.route('/delete', methods= ['POST'])
+@app.route('/delete', methods= ['DELETE'])
 def delete():
    jsonData = request.get_json()
    return registerController.delete(jsonData['email'])

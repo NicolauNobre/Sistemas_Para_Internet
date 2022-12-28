@@ -8,7 +8,7 @@ async function signIn(){
     method: 'POST',
     headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
     },
     body: JSON.stringify({
         "username": username.value,
@@ -16,8 +16,6 @@ async function signIn(){
         "password": password.value,
     }),
     });
-
-    console.log(response.body.username);
 
     response.json().then(data => {
     console.log(data);
