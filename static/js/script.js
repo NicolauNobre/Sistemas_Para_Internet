@@ -79,7 +79,7 @@ async function delUser(){
 async function editUser(){
 
     const response = await fetch("http://localhost:3578/update", {
-    method: 'UPDATE',
+    method: 'PUT',
     headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'

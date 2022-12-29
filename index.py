@@ -45,13 +45,13 @@ def create():
       return registerController.register(jsonData['username'], jsonData['email'], jsonData['password'])
 
 # Definindo rota para a página de edição
-@app.route('/update', methods= ['GET','UPDATE'])
+@app.route('/update', methods= ['GET','PUT'])
 # Definindo função para a rota
 def update():
    # Verificando o método da requisição
    if request.method == 'GET':
       return render_template('/edit.html')
-   elif request.method == 'UPDATE':
+   elif request.method == 'PUT':
       # Obtendo os dados do formulário
       jsonData = request.get_json()
       # Retornando o resultado da função de edição
