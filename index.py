@@ -1,3 +1,4 @@
+# Descrição: Arquivo principal do projeto
 # Importando biblioteca do Flask
 from flask import Flask, render_template, request
 
